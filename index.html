@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Dplayer记忆播放器</title>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<meta http-equiv="content-language" content="zh-CN"/>
+<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="expires" content="0"/>
+<meta name="referrer" content="never"/>
+<meta name="renderer" content="webkit"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+<meta name="HandheldFriendly" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="Viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<style type="text/css">
+body,html{width:100%;height:100%;background:#000;padding:0;margin:0;overflow-x:hidden;overflow-y:hidden}
+*{margin:0;border:0;padding:0;text-decoration:none}
+#stats{position:fixed;top:5px;left:8px;font-size:12px;color:#fdfdfd;text-shadow:1px 1px 1px #000, 1px 1px 1px #000}
+#dplayer{position:inherit}
+</style>
+</head>
+<body style="background:#000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu=window.event.returnValue=false>
+<div id="dplayer"></div>
+<div id="stats"></div>
+<script language="Javascript">
+document.oncontextmenu=new Function("event.returnValue=false");
+document.onselectstart=new Function("event.returnValue=false");
+</script>
+<script type="text/javascript"src="DPlayer.min.js"></script>
+<script type="text/javascript"src="hls.min.js"></script>
+<script>
+var webdata = {
+	set: function(key, val) {
+		window.sessionStorage.setItem(key, val)
+	},
+	get: function(key) {
+		return window.sessionStorage.getItem(key)
+	},
+	del: function(key) {
+		window.sessionStorage.removeItem(key)
+	},
+	clear: function(key) {
+		window.sessionStorage.clear()
+	}
+};
+var vid = window.location.href.split("url=")[1];
+var dp = new DPlayer({
+	autoplay: true,
+	loop: true,
+	screenshot: true,
+	hotkey: true,
+	preload: 'auto',
+	container: document.getElementById('dplayer'),
+	video: {
+		url: vid,
+		pic: 'https://p1.pstatp.com/origin/fe9a0001335d9b57ce3d',
+	},
+});
+dp.seek(webdata.get('pay' + vid));
+setInterval(function() {
+	webdata.set('pay' + vid, dp.video.currentTime)
+}, 1000);
+var _peerId = '',
+	_peerNum = 0,
+	_totalP2PDownloaded = 0,
+	_totalP2PUploaded = 0;
+dp.on('stats', function(stats) {
+	_totalP2PDownloaded = stats.totalP2PDownloaded;
+	_totalP2PUploaded = stats.totalP2PUploaded;
+	updateStats()
+});
+dp.on('peerId', function(peerId) {
+	_peerId = peerId
+});
+dp.on('peers', function(peers) {
+	_peerNum = peers.length;
+	updateStats()
+});
+
+</script>
+<span style="display: none;">
+  
+</span>
+
+</body>
+</html>
