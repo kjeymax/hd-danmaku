@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="">
-</head>
-<style>
 body {
     font-family: sans-serif;
     font-weight: bold;
@@ -82,13 +74,3 @@ body {
         transform: translateY(0px);
     }
 }
-
-</style>
-</head>
-<body>
-
-<center><a href="#" class="btn btn-white btn-animated" style="top: 100px; left: 100px;">You Can Join our Telegram</a></center>
-<center><a href="#" class="btn btn-white btn-animated" style="top: 130px; left: 100px;">You Can Join our Discord S</a></center>
-
-</body>
-</html>
