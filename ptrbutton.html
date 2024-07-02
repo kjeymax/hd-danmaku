@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patreon Button</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kjeymax/hd-danmaku@main/newpat.css">
+</head>
+<body>
+<div class="patreon-button-container">
+    <a href="https://www.patreon.com/bePatron?u=98977527" data-patreon-widget-type="become-patron-button" data-shortcode="patreon-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 569 546">
+            <path d="M 376.805 0 c-105.275 0-191.116 85.833-191.116 191.116 c0 105.274 85.841 191.106 191.116 191.106 s191.106-85.832 191.106-191.106 C 567.911 85.833 482.08 0 376.805 0 Z M 0 536.293 h 107.497 V 9.707 H 0 V 536.293 Z"></path>
+        </svg>
+        Become a member!
+    </a>
+</div>
+<script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const patreonButton = document.querySelector('[data-shortcode="patreon-button"]');
+        if (patreonButton) {
+            // Custom behavior or styles can be added here
+            patreonButton.style.border = '2px solid #e85b46';
+            patreonButton.style.padding = '12px 22px';
+        }
+    });
+</script>
+</body>
+</html>
