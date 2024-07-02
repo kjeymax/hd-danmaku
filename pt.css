@@ -1,0 +1,24 @@
+    .patreon-button-container {
+        text-align: center;
+    }
+    .patreon-button-container a {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: #fff;
+        background-color: #e85b46;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    .patreon-button-container a svg {
+        margin-right: 10px;
+        fill: #fff;
+        width: 24px;
+        height: 24px;
+    }
+    .patreon-button-container a:hover {
+        background-color: #d44c3b;
+    }
