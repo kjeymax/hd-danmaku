@@ -1,0 +1,101 @@
+        /* Pop-up overlay styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Pop-up container styles */
+        .popup-container {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .popup-overlay.active .popup-container {
+            transform: scale(1);
+        }
+        
+        /* Close button styles */
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .popup-close:hover {
+            color: #FF6B35;
+        }
+        
+        /* Content styles */
+        .popup-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .popup-title {
+            color: #FFD700;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .popup-image {
+            max-width: 200px;
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+        
+        .popup-description {
+            font-size: 14px;
+            margin: 15px 0;
+            line-height: 1.4;
+        }
+        
+        .popup-cta {
+            background: #FF6B35;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+        
+        .popup-cta:hover {
+            background: #e55a2b;
+        }
+        
+        .popup-disclosure {
+            color: #888;
+            font-size: 10px;
+            margin-top: 15px;
+        }
