@@ -4,7 +4,7 @@
             
             // Set countdown end time (3 days from now for demo purposes)
             // Change this to your actual offer end date
-            const countDownDate = new Date().getTime() + (3 * 24 * 60 * 60 * 1000);
+            const countDownDate = new Date().getTime() + (17 * 24 * 60 * 60 * 1000);
             
             // Update the countdown every 1 second
             const countdownFunction = setInterval(function() {
