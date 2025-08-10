@@ -13,6 +13,9 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            margin: 0 auto; /* centers horizontally */
+            max-width: 100%; /* keeps it responsive */
+            height: auto;    
         }
         
         .popup-overlay.active {
