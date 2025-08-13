@@ -1,0 +1,129 @@
+        /* Pop-up overlay styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Pop-up container styles */
+        .popup-container {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border: 2px solid #4a90e2;
+            border-radius: 10px;
+            padding: 25px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .popup-overlay.active .popup-container {
+            transform: scale(1);
+        }
+        
+        /* Close button styles */
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .popup-close:hover {
+            color: #ff6b35;
+        }
+        
+        /* Content styles */
+        .popup-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .popup-title {
+            color: #4a90e2;
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .popup-subtitle {
+            color: #ffffff;
+            font-size: 16px;
+        }
+        
+        /* Ad container styles */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .ad-frame {
+            border: none;
+            border-radius: 5px;
+        }
+        
+        /* Timer styles */
+        .timer-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .timer-text {
+            color: #ff6b35;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .skip-button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .skip-button:hover {
+            background: #3a7bc8;
+        }
+        
+        .skip-button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .popup-container {
+                max-width: 350px;
+            }
+            
+            .popup-title {
+                font-size: 20px;
+            }
+        }
