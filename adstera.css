@@ -23,7 +23,7 @@
         /* Pop-up container styles */
         .popup-container {
             background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            border: 2px solid #4a90e2;
+            border: 2px solid #ff0000;
             border-radius: 10px;
             padding: 25px;
             max-width: 400px;
@@ -60,7 +60,7 @@
         }
         
         .popup-title {
-            color: #4a90e2;
+            color: #ff1100;
             font-size: 22px;
             margin-bottom: 10px;
             font-family: Arial, sans-serif;
@@ -91,13 +91,13 @@
         }
         
         .timer-text {
-            color: #ff6b35;
+            color: #ff1100;
             font-size: 14px;
             margin-bottom: 5px;
         }
         
         .skip-button {
-            background: #4a90e2;
+            background: #ff0000;
             color: white;
             border: none;
             padding: 8px 15px;
@@ -109,7 +109,7 @@
         }
         
         .skip-button:hover {
-            background: #3a7bc8;
+            background: #ed2521;
         }
         
         .skip-button:disabled {
