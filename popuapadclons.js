@@ -1,3 +1,4 @@
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const popup = document.getElementById('adPopup');
             const closeBtn = document.getElementById('closePopup');
@@ -84,26 +85,26 @@
             
             // Close pop-up when clicking the X button
             closeBtn.addEventListener('click', function() {
-                redirectToAd();
+                openAdInNewTab();
             });
             
             // Close pop-up when clicking outside the container
             popup.addEventListener('click', function(e) {
                 if (e.target === popup) {
-                    redirectToAd();
+                    openAdInNewTab();
                 }
             });
             
             // Close pop-up when clicking the skip button
             skipButton.addEventListener('click', function() {
                 if (!skipButton.disabled) {
-                    redirectToAd();
+                    openAdInNewTab();
                 }
             });
             
-            // Function to redirect to the ad URL
-            function redirectToAd() {
-                window.location.href = 'https://hushclosing.com/dy6fmr72?key=aa516ec777ff333a89904f0a5ff57eb3';
+            // Function to open ad in new tab
+            function openAdInNewTab() {
+                window.open('https://hushclosing.com/dy6fmr72?key=aa516ec777ff333a89904f0a5ff57eb3', '_blank');
             }
             
             // Cookie functions to limit pop-up frequency
