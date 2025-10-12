@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const script2 = document.createElement('script');
         script2.type = 'text/javascript';
-        script2.src = 'https://hushclosing.com/dy6fmr72?key=aa516ec777ff333a89904f0a5ff57eb3';
+        script2.src = 'https://atecomprisedispel.com/jr5y0xrjj?key=28a024cba570da0bce2522216cfa0208';
         
         adDiv.appendChild(script1);
         adDiv.appendChild(script2);
