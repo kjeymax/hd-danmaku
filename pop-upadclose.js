@@ -74,14 +74,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close pop-up when clicking the X button (opens ad)
     closeBtn.addEventListener('click', function() {
-        window.open('https://hushclosing.com/dy6fmr72?key=aa516ec777ff333a89904f0a5ff57eb3', '_blank');
+        window.open('https://atecomprisedispel.com/jr5y0xrjj?key=28a024cba570da0bce2522216cfa0208', '_blank');
         closePopup();
     });
     
     // Close pop-up when clicking outside
     popup.addEventListener('click', function(e) {
         if (e.target === popup) {
-            window.open('https://hushclosing.com/dy6fmr72?key=aa516ec777ff333a89904f0a5ff57eb3', '_blank');
+            window.open('https://atecomprisedispel.com/jr5y0xrjj?key=28a024cba570da0bce2522216cfa0208', '_blank');
             closePopup();
         }
     });
