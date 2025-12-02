@@ -1,6 +1,7 @@
 (function() {
 // 1. පරිශීලක සැකසුම් ලබා ගැනීම (නැත්නම් Default අගයන් භාවිතා කිරීම)
 var config = window.HSL_CONFIG || {};
+var theme = config.theme || 'default' ;
 var themeClass = 'theme-' + theme;
 
 var placement = config.placement || 'bottom-right'; // වම් පැත්තද? දකුණු පැත්තද?
