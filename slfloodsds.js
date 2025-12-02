@@ -1,6 +1,7 @@
 (function() {
 // 1. පරිශීලක සැකසුම් ලබා ගැනීම (නැත්නම් Default අගයන් භාවිතා කිරීම)
 var config = window.HSL_CONFIG || {};
+var themeClass = 'theme-' + theme;
 
 var placement = config.placement || 'bottom-right'; // වම් පැත්තද? දකුණු පැත්තද?
 var title = config.modal_title || 'අපේම මිනිසුන් වෙනුවෙන් ❤️';
@@ -153,13 +154,13 @@ document.head.appendChild(style);
 
 // 4. HTML Structure (Config අගයන් මෙතැනට ආදේශ වේ)
 var widgetHTML = `
-<div class="sl-float-btn sl-widget-font" id="slTriggerBtn">
+<div class="sl-float-btn sl-widget-font ${themeClass}" id="slTriggerBtn">
     <img src="https://www.udrop.com/file/O4eb/sl_flag.svg" alt="Sri Lanka Flag"
         style="height: 22px; width: auto; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));">
     <span class="sl-float-text">HELP SRI LANKA</span>
 </div>
 
-<div class="sl-modal-overlay sl-widget-font" id="slModal">
+<div class="sl-modal-overlay sl-widget-font ${themeClass}" id="slModal">
     <div class="sl-modal-box">
         <button class="sl-close-btn" id="slCloseBtn">&times;</button>
         <div class="sl-modal-header">
