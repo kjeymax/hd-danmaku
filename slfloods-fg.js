@@ -1,7 +1,7 @@
 (function () {
   var config = window.HSL_CONFIG || {};
 
-  var variant = config.variant || 'popup';  // NEW
+  var variant = config.variant || 'popup';  // 'popup' | 'float' | 'header' | 'snackbar' | 'nav' | 'infeed'
   var placement = config.placement || 'bottom-right';
   var title = config.modal_title || 'අපේම මිනිසුන් වෙනුවෙන් ❤️';
   var bodyText =
@@ -12,19 +12,19 @@
   var positionStyle =
     placement === 'bottom-left' ? 'left: 25px;' : 'right: 25px;';
 
-  // Google Font
+  // === Google Font ===
   var fontLink = document.createElement('link');
   fontLink.href =
     'https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@100..900&display=swap';
   fontLink.rel = 'stylesheet';
   document.head.appendChild(fontLink);
 
-  // Base CSS + variants
+  // === CSS ===
   var style = document.createElement('style');
   style.innerHTML = `
     .sl-widget-font { font-family: "Noto Serif Sinhala", serif; }
 
-    /* === SHARED BUTTON & COLORS === */
+    /* === SHARED CTA BUTTON === */
     .sl-cta-main {
       background: linear-gradient(180deg, #a31e45 0%, #5e0b24 100%);
       color: #fff;
@@ -32,6 +32,7 @@
       padding: 10px 24px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       font-weight: 800;
       font-size: 14px;
@@ -41,6 +42,11 @@
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.3);
       transition: all .25s ease;
+      white-space: nowrap;          /* keep OPEN on one line */
+      min-width: 90px;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      text-align: center;
     }
     .sl-cta-main:hover {
       transform: translateY(-2px);
@@ -53,7 +59,7 @@
       filter: drop-shadow(0 2px 3px rgba(0,0,0,.5));
     }
 
-    /* === POPUP MODAL (blog popup / current design) === */
+    /* === POPUP MODAL === */
     .sl-modal-overlay {
       display: none; position: fixed; inset: 0;
       background-color: rgba(40, 20, 20, 0.8); z-index: 100000;
@@ -116,7 +122,7 @@
       box-shadow: 0 3px 6px rgba(0,0,0,0.3);
     }
 
-    /* === FLOATING BUTTON (used by float + popup variants) === */
+    /* === FLOATING BUTTON === */
     .sl-float-btn {
       position: fixed; bottom: 25px; ${positionStyle}
       z-index: 99999;
@@ -151,7 +157,7 @@
       opacity: .85;
     }
 
-    /* === SNACKBAR (bottom center) === */
+    /* === SNACKBAR === */
     .sl-snackbar-wrap {
       position: fixed;
       bottom: 20px;
@@ -160,9 +166,9 @@
       z-index: 99999;
     }
     .sl-snackbar {
-      background: #1f2933;
+      background: #111827;
       color: #f9fafb;
-      padding: 12px 18px;
+      padding: 10px 16px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
@@ -180,9 +186,12 @@
       font-size: 16px;
       line-height: 1;
       opacity: .7;
+      border: none;
+      background: transparent;
+      color: inherit;
     }
 
-    /* === NAV BANNER (thin strip, like navigation menu) === */
+    /* === NAV BANNER === */
     .sl-nav-banner {
       width: 100%;
       background: #2b1020;
@@ -196,20 +205,25 @@
       border-bottom: 1px solid #FFBE29;
     }
 
-    /* === IN-FEED CARD === */
+    /* === IN-FEED CARD (improved) === */
     .sl-infeed-card {
-      background: #FFFDF8;
-      border-radius: 16px;
-      border: 1px solid #E6D5C3;
-      padding: 18px 18px 16px 18px;
-      margin: 24px 0;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+      max-width: 1100px;
+      margin: 24px auto 40px auto;
       display: flex;
-      gap: 14px;
       align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+      background: linear-gradient(90deg, #fffaf2 0%, #fff3e0 100%);
+      border: 1px solid #f1d29a;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      animation: feedFadeUp .35s ease;
     }
-    .sl-infeed-flag-wrap {
-      flex-shrink: 0;
+    .sl-infeed-flag-wrap img {
+      height: 34px;
+      width: auto;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,.3);
     }
     .sl-infeed-title {
       font-size: 17px;
@@ -220,11 +234,47 @@
     .sl-infeed-desc {
       font-size: 13px;
       color: #6D4C41;
-      margin-bottom: 8px;
+      line-height: 1.4;
+      max-width: 640px;
+    }
+    .sl-infeed-card .sl-cta-main {
+      margin-left: auto;
+      padding: 10px 22px;
+      font-size: 13px;
+    }
+    @keyframes feedFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sl-infeed-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .sl-infeed-card .sl-cta-main {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+      }
+      .sl-infeed-desc {
+        max-width: 100%;
+      }
+      .sl-snackbar {
+        max-width: calc(100vw - 32px);
+      }
     }
   `;
   document.head.appendChild(style);
 
+  // === HTML BUILDERS ===
   function buildOptionsList() {
     return `
       <div class="sl-options-list">
@@ -300,9 +350,9 @@
           <span class="sl-snackbar-title">${title}</span>
           <span>${bodyText}</span>
           <button class="sl-cta-main" id="slSnackCta">
-            <span>Open</span>
+            <span>OPEN</span>
           </button>
-          <span class="sl-snackbar-close" id="slSnackClose">&times;</span>
+          <button class="sl-snackbar-close" id="slSnackClose">&times;</button>
         </div>
       </div>
       ${buildPopupHTML()}
@@ -325,15 +375,15 @@
     return `
       <div class="sl-infeed-card sl-widget-font">
         <div class="sl-infeed-flag-wrap">
-          <img class="sl-cta-flag" src="https://www.udrop.com/file/O4eb/sl_flag.svg" alt="">
+          <img src="https://www.udrop.com/file/O4eb/sl_flag.svg" alt="Sri Lanka Flag">
         </div>
         <div style="flex:1">
           <div class="sl-infeed-title">${title}</div>
           <div class="sl-infeed-desc">${bodyText}</div>
-          <button class="sl-cta-main" id="slInfeedCta">
-            <span>Support Relief</span>
-          </button>
         </div>
+        <button class="sl-cta-main" id="slInfeedCta">
+          <span>SUPPORT RELIEF</span>
+        </button>
       </div>
       ${buildPopupHTML()}
     `;
@@ -342,7 +392,6 @@
   function attachInfeed(html) {
     var target = targetSelector ? document.querySelector(targetSelector) : null;
     if (!target) {
-      // fallback: append to body
       var container = document.createElement('div');
       container.innerHTML = html;
       document.body.appendChild(container);
@@ -354,7 +403,7 @@
     return wrapper;
   }
 
-  // build based on variant
+  // === INSERT WIDGET BASED ON VARIANT ===
   var container = document.createElement('div');
   var htmlToInsert = '';
 
@@ -376,7 +425,6 @@
       break;
     case 'nav':
       htmlToInsert = buildNavBannerHTML();
-      // either inside specific element or top of body
       if (targetSelector) {
         attachInfeed(htmlToInsert);
       } else {
@@ -396,7 +444,7 @@
       break;
   }
 
-  // logic / event listeners (shared)
+  // === LOGIC / EVENTS ===
   function initLogic() {
     var modal = document.getElementById('slModal');
     var closeBtn = document.getElementById('slCloseBtn');
@@ -421,10 +469,13 @@
     if (infeedCta) infeedCta.addEventListener('click', openModal);
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (snackClose) snackClose.addEventListener('click', function () {
-      var wrap = document.getElementById('slSnackbar');
-      if (wrap) wrap.style.display = 'none';
-    });
+
+    if (snackClose) {
+      snackClose.addEventListener('click', function () {
+        var wrap = document.getElementById('slSnackbar');
+        if (wrap) wrap.style.display = 'none';
+      });
+    }
 
     window.addEventListener('click', function (e) {
       if (e.target === modal) closeModal();
